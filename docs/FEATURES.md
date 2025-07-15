@@ -1,3 +1,11 @@
+# What is this file?
+# This file is your development roadmap - a list of everything you want to build.
+# It helps you track what you have completed, what you are working on, and what is next.
+# Think of it as your "to-do list" and "done list" for the project.
+
+# Example: You can see that you have completed the button and modal,
+# and plan to add a navigation menu next.
+
 # Features Roadmap
 
 ## Completed ✅
@@ -87,4 +95,4 @@
 - Focus on **simple, achievable goals** first
 - **Test on mobile devices** regularly
 - **Keep code organized** as the project grows
-- **Document decisions** in DESIGN.md 
+- **Document decisions** in DESIGN.md

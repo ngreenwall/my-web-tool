@@ -1,3 +1,11 @@
+# What is this file?
+# This is the "front door" of your project - the first thing people see on GitHub.
+# It explains what your project is, how to use it, and what it does.
+# Think of it as a welcome sign that tells visitors everything they need to know.
+
+# Example: When someone visits your GitHub repository, this is what they read first
+# to understand what you have built and how to use it.
+
 # My Web Tool
 
 ## What is this?

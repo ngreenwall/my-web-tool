@@ -1,12 +1,4 @@
 # What is this file?
-# This file tells Git which files to ignore (not save to GitHub).
-# Some files should not be shared, like passwords or temporary files.
-# This list keeps your repository clean and secure.
-
-# Example: If you have a file with your password, you do not want it on GitHub.
-# You would add that file to this list so Git ignores it.
-
-# What is this file?
 # This file tells Git (your version control system) which files to ignore.
 # Think of it like a "do not track" list. Some files should not be saved to GitHub.
 

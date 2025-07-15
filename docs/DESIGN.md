@@ -1,3 +1,11 @@
+# What is this file?
+# This file documents all your design decisions - colors, fonts, spacing, and styling choices.
+# It is like a "style guide" that helps you keep your design consistent.
+# When you are building new features, you can look here to see what colors and styles to use.
+
+# Example: When you want to add a new button, you can check this file
+# to see what colors, padding, and border radius to use.
+
 # Design Decisions & Guidelines
 
 ## Color Scheme
@@ -20,7 +28,7 @@
 ## Typography
 
 ### Font Family
-- **Primary**: `'Arial', sans-serif` - Clean, readable, widely supported
+- **Primary**: `Arial, sans-serif` - Clean, readable, widely supported
 
 ### Font Sizes
 - **Main Heading**: `3rem` - Large, prominent titles
@@ -135,4 +143,4 @@
 ### Component Library
 - **Consistent Styling**: Reusable button, modal, and form components
 - **Design Tokens**: Centralized colors, spacing, and typography
-- **Style Guide**: Documentation for maintaining consistency 
+- **Style Guide**: Documentation for maintaining consistency

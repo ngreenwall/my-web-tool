@@ -1,3 +1,12 @@
+# What is this file?
+# This file makes your website work like a phone app.
+# When someone visits your website on their phone, they can "install" it to their home screen.
+# It tells the phone what your app is called, what it looks like, and how to start it.
+
+# Example: Your website becomes an app icon on someones phone.
+# When they tap it, it opens your website in full-screen mode.
+# It looks and feels like a real app, not just a website.
+
 {
   "name": "My Web Tool",
   "short_name": "WebTool",
