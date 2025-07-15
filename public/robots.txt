@@ -1,0 +1,11 @@
+# What is this file?
+# This file tells search engines (like Google) how to find and understand your website.
+# It is like giving Google a map of your website.
+
+# Example: You want Google to show your website when people search for "web tools"
+# This file helps Google know what your website is about.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ngreenwall.github.io/my-web-tool/sitemap.xml
