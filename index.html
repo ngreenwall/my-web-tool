@@ -2,7 +2,8 @@
 <!-- What is this file? -->
 <!-- This is your main website file - the homepage that people see when they visit your site. -->
 <!-- It contains the HTML structure, CSS styling, and JavaScript functionality. -->
-<!-- Example: This is where your "Hello World" message, button, and modal are defined. --><html lang="en">
+<!-- Example: This is where your "Hello World" message, button, and modal are defined. -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,9 +67,10 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .btn:hover {
+        .btn:hover, .btn:focus {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            outline: 2px solid #fff;
         }
 
         /* Modal styling */
@@ -107,14 +109,14 @@
             cursor: pointer;
         }
 
-        .close:hover {
-            opacity: 0.7;
+        .close:focus {
+            outline: 2px solid #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello World! <span class="wave">👋</span></h1>
+        <h1>Hello World! <span class="wave" role="img" aria-label="waving hand">👋</span></h1>
         <p>Welcome to your first web page!</p>
         
         <!-- Button that will open the modal -->
@@ -122,33 +124,64 @@
     </div>
 
     <!-- Modal that appears when button is clicked -->
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Thanks for clicking this button! 🎉</h2>
+            <span class="close" onclick="closeModal()" tabindex="0" role="button" aria-label="Close modal">&times;</span>
+            <h2 id="modalTitle">Thanks for clicking this button! 🎉</h2>
             <p>You just made your first interactive web page!</p>
         </div>
     </div>
 
-    <!-- JavaScript to make the modal work -->
+    <!-- JavaScript to make the modal work and improve accessibility -->
     <script>
-        // Get the modal element from the page
         var modal = document.getElementById("myModal");
+        var closeBtn = document.querySelector(".close");
+        var openBtn = document.querySelector(".btn");
+        var lastFocusedElement;
 
         // Function to open the modal
         function openModal() {
-            modal.style.display = "block"; // Show the modal
+            lastFocusedElement = document.activeElement;
+            modal.style.display = "block";
+            // Focus the close button for accessibility
+            closeBtn.focus();
+            // Add event listener for focus trap
+            document.addEventListener('focus', trapFocus, true);
         }
 
         // Function to close the modal
         function closeModal() {
-            modal.style.display = "none"; // Hide the modal
+            modal.style.display = "none";
+            // Return focus to the button that opened the modal
+            if (lastFocusedElement) lastFocusedElement.focus();
+            document.removeEventListener('focus', trapFocus, true);
         }
 
         // Close modal when clicking outside of it
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                closeModal();
+            }
+        }
+
+        // Close modal with Esc key and make close button keyboard accessible
+        document.addEventListener('keydown', function(event) {
+            if (modal.style.display === "block") {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+                // Make close button work with Enter/Space
+                if (document.activeElement === closeBtn && (event.key === "Enter" || event.key === " ")) {
+                    closeModal();
+                }
+            }
+        });
+
+        // Basic focus trap for modal
+        function trapFocus(event) {
+            if (modal.style.display === "block" && !modal.contains(event.target)) {
+                event.stopPropagation();
+                closeBtn.focus();
             }
         }
     </script>
